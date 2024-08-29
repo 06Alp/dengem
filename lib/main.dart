@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Introduction(),//call HomePage() to acces chat screen
+      home: HomePage(),//call HomePage() to acces chat screen
     );
   }
 }
