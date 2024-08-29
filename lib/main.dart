@@ -1,3 +1,5 @@
+import 'package:dengem/music.dart';
+import 'package:dengem/player_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:dengem/list_screen.dart';
 import 'package:dengem/introduction.dart';
@@ -10,33 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),//call HomePage() to acces chat screen
+      home: PlayerScreen(), //call PsychologistSelectionScreen() to acces chat screen
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Main Screen'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => PsychologistSelectionScreen()),
-            );
-          },
-          child: Text('Select Psychologist'),
-        ),
-      ),
-    );
-  }
-}
+
