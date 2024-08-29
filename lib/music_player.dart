@@ -89,84 +89,100 @@ class _MusicPlayerState extends State<MusicPlayer> {
       ),
       body: Column(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(150),
-                    bottomRight: Radius.circular(150)),
-                color: Color.fromARGB(255, 218, 157, 74)),
-            child: Align(
-              alignment: Alignment.center,
-              child: Image.asset(
-                playlist[0].albumeImagePath,
-                height: 200,
+          Expanded(flex: 2,
+            child: Container(
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(150),
+                      bottomRight: Radius.circular(150)),
+                  color: Color.fromARGB(255, 218, 157, 74)),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Image.asset(
+                  playlist[0].albumeImagePath,
+                  height: 250,
+                ),
               ),
             ),
           ),
-          const SizedBox(height: 20),
-          Text(
-            playlist[0].songName,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          Text(playlist[0].artistName),
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                icon: Icon(Icons.shuffle,
-                    color: isShuffling ? Colors.blue : null),
-                onPressed: () {
-                  setState(() {
-                    isShuffling = !isShuffling;
-                  });
-                },
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.skip_previous_rounded),
-                iconSize: 30,
-              ),
-              IconButton(
-                icon: Icon(
-                  isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
-                  size: 50,
+          Expanded(flex: 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    playlist[0].songName,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
                 ),
-                onPressed: () async {
-                  if (isPlaying) {
-                    await audioPlayer.pause();
-                  } else {
-                    await audioPlayer.play(AssetSource(playlist[0].audioPath));
-                  }
-                  setState(() {
-                    isPlaying = !isPlaying;
-                  });
-                },
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.skip_next_rounded),
-                iconSize: 30,
-              ),
-              IconButton(
-                icon:
-                    Icon(Icons.repeat, color: isRepeating ? Colors.blue : null),
-                onPressed: () {
-                  setState(() {
-                    isRepeating = !isRepeating;
-                  });
-                },
-              ),
-            ],
-          ),
-          Slider(
-            value: progress,
-            onChanged: (value) {
-              audioPlayer.seek(Duration(milliseconds: value.toInt()));
-            },
-            activeColor: Color.fromARGB(255, 218, 157, 74),
-            min: 0.0,
-            max: duration.inMilliseconds.toDouble(),
+                Text(playlist[0].artistName),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.shuffle,
+                            color: isShuffling ? Colors.blue : null),
+                        onPressed: () {
+                          setState(() {
+                            isShuffling = !isShuffling;
+                          });
+                        },
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.skip_previous_rounded),
+                        iconSize: 30,
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                          size: 50,
+                        ),
+                        onPressed: () async {
+                          if (isPlaying) {
+                            await audioPlayer.pause();
+                          } else {
+                            await audioPlayer.play(AssetSource(playlist[0].audioPath));
+                          }
+                          setState(() {
+                            isPlaying = !isPlaying;
+                          });
+                        },
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.skip_next_rounded),
+                        iconSize: 30,
+                      ),
+                      IconButton(
+                        icon:
+                            Icon(Icons.repeat, color: isRepeating ? Colors.blue : null),
+                        onPressed: () {
+                          setState(() {
+                            isRepeating = !isRepeating;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: Slider(
+                    value: progress,
+                    onChanged: (value) {
+                      audioPlayer.seek(Duration(milliseconds: value.toInt()));
+                    },
+                    activeColor: Color.fromARGB(255, 218, 157, 74),
+                    min: 0.0,
+                    max: duration.inMilliseconds.toDouble(),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
