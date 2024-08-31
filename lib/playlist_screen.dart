@@ -1,4 +1,4 @@
-import 'package:dengem/playlist_provider.dart';
+import 'package:dengem/classic_music_provider.dart';
 import 'package:flutter/material.dart';
 
 
@@ -12,11 +12,11 @@ class PlaylistScreen extends StatelessWidget {
         title: Text('Playlist'),
       ),
       body: ListView.builder(
-        itemCount: playlist.length,
+        itemCount: classicList.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(playlist[index].songName),
-            subtitle: Text(playlist[index].artistName),
+            title: Text(classicList[index].songName),
+            subtitle: Text(classicList[index].artistName),
             onTap: () {
               // Navigate to the Play Screen with the selected song
             },
