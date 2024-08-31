@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:dengem/classic_music_player.dart';
+import 'package:dengem/home.dart';
 import 'package:dengem/nature_sound_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -49,11 +50,18 @@ class _NatureSoundPlayer extends State<NatureSoundPlayer> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: themeColor,
-        title: const Text('Doğa Sesleri'),
+        title: const Text('Doğa Sesleri',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {} /*send to home page*/,
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Home(),
+                    ));
+              },
               icon: const Icon(
                 Icons.close_rounded,
                 size: 25,
@@ -83,7 +91,7 @@ class _NatureSoundPlayer extends State<NatureSoundPlayer> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => NatureSoundPlayer(),
+                        builder: (context) => const NatureSoundPlayer(),
                       ));
                 },
               ),
@@ -99,7 +107,7 @@ class _NatureSoundPlayer extends State<NatureSoundPlayer> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ClassicMusicPlayer(),
+                        builder: (context) => const ClassicMusicPlayer(),
                       ));
                 },
               ),
@@ -148,7 +156,6 @@ class _NatureSoundPlayer extends State<NatureSoundPlayer> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                     
                       IconButton(
                         onPressed: () {
                           setState(() {
@@ -198,7 +205,6 @@ class _NatureSoundPlayer extends State<NatureSoundPlayer> {
                         icon: const Icon(Icons.skip_next_rounded),
                         iconSize: 30,
                       ),
-                      
                     ],
                   ),
                 ),

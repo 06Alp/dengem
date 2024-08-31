@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:dengem/home.dart';
 import 'package:dengem/nature_sound_player.dart';
 import 'package:flutter/material.dart';
 import 'package:dengem/classic_music_provider.dart';
@@ -49,11 +50,18 @@ class _ClassicMusicPlayer extends State<ClassicMusicPlayer> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: themeColor,
-        title: const Text('Klasik Müzik'),
+        title: const Text('Klasik Müzik',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {} /*send to home page*/,
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Home(),
+                    ));
+              },
               icon: const Icon(
                 Icons.close_rounded,
                 size: 25,
@@ -83,7 +91,7 @@ class _ClassicMusicPlayer extends State<ClassicMusicPlayer> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => NatureSoundPlayer(),
+                        builder: (context) => const NatureSoundPlayer(),
                       ));
                 },
               ),
@@ -99,7 +107,7 @@ class _ClassicMusicPlayer extends State<ClassicMusicPlayer> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ClassicMusicPlayer(),
+                        builder: (context) => const ClassicMusicPlayer(),
                       ));
                 },
               ),
