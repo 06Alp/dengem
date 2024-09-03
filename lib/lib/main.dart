@@ -1,19 +1,25 @@
-import 'package:dengem/music_player.dart';
 import 'package:flutter/material.dart';
-import 'package:dengem/list_screen.dart';
-import 'package:dengem/introduction.dart';
+import 'package:untitled6/ana_sayfa.dart';
+import 'package:untitled6/tumunu_gor_gorevler.dart';
+import 'package:untitled6/introduction.dart';
+import 'package:untitled6/loadingscreen.dart';
+import 'package:untitled6/breathe.dart';
+import 'package:untitled6/profil_sayfa.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    home: Introduction(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
+
+class AnaUygulama extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MusicPlayer(), //call PsychologistSelectionScreen() to acces chat screen
+      home: profil(),
     );
   }
+
 }
-
-

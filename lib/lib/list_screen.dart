@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dengem/chat_screen.dart';
+import 'package:untitled6/chat_screen.dart';
 
 class PsychologistSelectionScreen extends StatelessWidget {
   const PsychologistSelectionScreen({super.key});
@@ -7,14 +7,14 @@ class PsychologistSelectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+            body: Stack(
         children: [
           // Background image covering the top part
           Container(
             height: MediaQuery.of(context).size.height * 0.4,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/background.png'),
+                image: AssetImage('assets/images/background.jpeg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -24,13 +24,13 @@ class PsychologistSelectionScreen extends StatelessWidget {
             top: 40,
             left: 20,
             child: IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.white),
+              icon: const Icon(Icons.arrow_back, color: Colors.white),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 40,
             right: 20,
             child: Icon(
@@ -47,7 +47,7 @@ class PsychologistSelectionScreen extends StatelessWidget {
             builder: (context, scrollController) {
               return NotificationListener<DraggableScrollableNotification>(
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
@@ -56,9 +56,10 @@ class PsychologistSelectionScreen extends StatelessWidget {
                   ),
                   child: ListView(
                     controller: scrollController,
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 20),
                     children: [
-                      Text(
+                      const Text(
                         'Uzman Psikologlar',
                         style: TextStyle(
                           fontSize: 24,
@@ -66,68 +67,68 @@ class PsychologistSelectionScreen extends StatelessWidget {
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       // Psychologist List
                       ListTile(
-                        leading: CircleAvatar(
+                        leading: const CircleAvatar(
                           backgroundImage:
-                              AssetImage('assets/psikolog_ali.png'),
+                              AssetImage('assets/images/psikolog_ali.jpeg'),
                         ),
-                        title: Text('Psikolog Ali'),
-                        subtitle: Text('Müsait'),
-                        trailing: Icon(Icons.circle, color: Colors.green),
+                        title: const Text('Psikolog Ali'),
+                        subtitle: const Text('Müsait'),
+                        trailing: const Icon(Icons.circle, color: Colors.green),
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ChatScreen(
+                              builder: (context) => const ChatScreen(
                                 psychologistName: 'Psikolog Ali',
                                 psychologistProfilePicture:
-                                    'assets/psikolog_ali.png',
+                                    'assets/images/psikolog_ali.jpeg',
                               ),
                             ),
                           );
                         },
                       ),
-                      Divider(),
+                      const Divider(),
                       ListTile(
-                        leading: CircleAvatar(
+                        leading: const CircleAvatar(
                           backgroundImage:
-                              AssetImage('assets/psikolog_atlas.png'),
+                              AssetImage('assets/images/psikolog_atlas.jpeg'),
                         ),
-                        title: Text('Psikolog Atlas'),
-                        subtitle: Text('Müsait'),
-                        trailing: Icon(Icons.circle, color: Colors.green),
+                        title: const Text('Psikolog Atlas'),
+                        subtitle: const Text('Müsait'),
+                        trailing: const Icon(Icons.circle, color: Colors.green),
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ChatScreen(
+                              builder: (context) => const ChatScreen(
                                 psychologistName: 'Psikolog Atlas',
                                 psychologistProfilePicture:
-                                    'assets/psikolog_atlas.png',
+                                    'assets/images/psikolog_atlas.jpeg',
                               ),
                             ),
                           );
                         },
                       ),
-                      Divider(),
+                      const Divider(),
                       ListTile(
-                        leading: CircleAvatar(
+                        leading: const CircleAvatar(
                           backgroundImage:
-                              AssetImage('assets/psikolog_basak.png'),
+                              AssetImage('assets/images/psikolog_basak.jpeg'),
                         ),
-                        title: Text('Psikolog Başak'),
-                        subtitle: Text('Müsait değil'),
-                        trailing: Icon(Icons.circle, color: Colors.red),
+                        title: const Text('Psikolog Başak'),
+                        subtitle: const Text('Müsait değil'),
+                        trailing: const Icon(Icons.circle, color: Colors.red),
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ChatScreen(
+                              builder: (context) => const ChatScreen(
                                 psychologistName: 'Psikolog Başak',
                                 psychologistProfilePicture:
-                                    'assets/psikolog_basak.png',
+                                    'assets/images/psikolog_basak.jpeg',
                               ),
                             ),
                           );

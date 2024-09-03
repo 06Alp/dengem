@@ -122,7 +122,7 @@ class ChatBubble extends StatelessWidget {
   final bool isRead;
   final AssetImage? profileImage;
 
-  const ChatBubble({
+  const ChatBubble({super.key, 
     required this.text,
     required this.isSentByMe,
     required this.time,
